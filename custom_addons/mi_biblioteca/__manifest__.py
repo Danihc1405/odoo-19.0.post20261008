@@ -6,9 +6,12 @@
  'license': 'LGPL-3', # licencia (evita un aviso)
  'depends': ['base'], # necesita el núcleo de Odoo
  'data': [
- 'security/ir.model.access.csv',
- 'views/libro_views.xml',
- ],
+    'security/ir.model.access.csv',
+    'data/tema_data.xml',
+    'views/libro_views.xml',
+    'views/tema_views.xml',
+],
+
 
  'installable': True,
  'application': True, # es una aplicación (tendrá icono)
