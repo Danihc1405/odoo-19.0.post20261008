@@ -2,38 +2,48 @@
 <odoo>
 <!-- LISTA de libros -->
 <record id="libro_view_list" model="ir.ui.view">
-    <field name="name">biblioteca.libro.list</field>
-    <field name="model">biblioteca.libro</field>
-    <field name="arch" type="xml">
-        <list>
-            <field name="name"/>
-            <field name="autor"/>
-            <field name="tema_ids" widget="many2many_tags"/>
-            <field name="paginas"/>
-            <field name="disponible"/>
-        </list>
-    </field>
+<field name="name">biblioteca.libro.list</field>
+<field name="model">biblioteca.libro</field>
+<field name="arch" type="xml">
+<list>
+<field name="name"/>
+<field name="autor"/>
+<field name="tema_ids" widget="many2many_tags"/>
+<field name="paginas"/>
+<field name="disponible"/>
+</list>
+</field>
 </record>
-<!-- FORMULARIO de un libro, en dos columnas -->
+<!-- FORMULARIO de un libro, con pestañas -->
 <record id="libro_view_form" model="ir.ui.view">
-    <field name="name">biblioteca.libro.form</field>
-    <field name="model">biblioteca.libro</field>
-    <field name="arch" type="xml">
-    <form>
-        <sheet>
-            <group>
-                <group>
-                    <field name="name"/>
-                    <field name="autor"/>
-                    <field name="isbn"/>
-                </group>
-            <group>
-                <field name="fecha_publicacion"/>
-                <field name="paginas"/>
-                <field name="disponible"/>
-                <field name="tema_ids" widget="many2many_tags"/>
-            </group>
+<field name="name">biblioteca.libro.form</field>
+<field name="model">biblioteca.libro</field>
+<field name="arch" type="xml">
+<form>
+<sheet>
+<group>
+<group>
+<field name="name"/>
+<field name="autor"/>
+<field name="isbn"/>
 </group>
+<group>
+<field name="fecha_publicacion"/>
+<field name="paginas"/>
+<field name="disponible"/>
+</group>
+</group>
+<notebook>
+<page string="Temas" name="temas">
+<field name="tema_ids" widget="many2many_tags"/>
+</page>
+<page string="Préstamos" name="prestamos">
+<group>
+<field name="num_prestamos"/>
+</group>
+<field name="prestamo_ids" readonly="1"/>
+</page>
+</notebook>
 </sheet>
 </form>
 </field>
