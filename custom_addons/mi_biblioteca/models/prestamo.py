@@ -7,8 +7,7 @@ class Prestamo(models.Model):
     default='Nuevo')
     libro_id = fields.Many2one('biblioteca.libro', string='Libro',
     required=True, ondelete='restrict')
-    socio_id = fields.Many2one('res.partner', string='Socio', required=True,
-    ondelete='restrict')
+    socio_id = fields.Many2one('res.partner', string='Socio', required=True,ondelete='restrict',domain=[('es_socio', '=', True)])
     fecha_prestamo = fields.Date(string='Fecha de préstamo', required=True,
     default=fields.Date.context_today)
     dias = fields.Integer(string='Días de préstamo', default=15)
@@ -17,3 +16,4 @@ class Prestamo(models.Model):
     ('prestado', 'Prestado'),
     ('devuelto', 'Devuelto'),
     ], string='Estado', default='borrador', required=True)
+    
