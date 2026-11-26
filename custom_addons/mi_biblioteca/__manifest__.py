@@ -8,10 +8,12 @@
  'data': [
     'security/ir.model.access.csv',
     'data/tema_data.xml',
+    'data/prestamo_sequence.xml',
     'views/libro_views.xml',
     'views/tema_views.xml',
     'views/prestamo_views.xml',
     'views/res_partner_views.xml',
+
 ],
 
 
